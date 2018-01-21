@@ -113,12 +113,6 @@ public class RNNotificationsModule extends ReactContextBaseJavaModule
         jsIOHelper.consumeBackgroundQueue();
     }
 
-    @ReactMethod
-    public void isRegisteredForRemoteNotifications(Promise promise) {
-        boolean hasPermission = NotificationManagerCompat.from(getReactApplicationContext()).areNotificationsEnabled();
-        promise.resolve(new Boolean(hasPermission));
-    }
-
     @Override
     public void onAppVisible() {
         final INotificationDrawer notificationsDrawer = NotificationDrawer
